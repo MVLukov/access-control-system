@@ -1,0 +1,103 @@
+@{
+    ViewData["Title"] = "Manage emplyees";
+}
+
+<h1>Manage employees</h1>
+<br>
+<div class="modal" tabindex="-1" id="modal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Scan tag</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="clearModal()"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-none" id="foundTag" onclick="selectTag()">
+                    </li>
+                    <div id="hideScanHeader">
+                        <li class="list-group-item">
+                            Scanning tag..
+                            <div class="spinner-border text-secondary spinner-border-sm mx-2 text-primary"
+                                role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-12 mx-auto my-3 order-lg-3 order-md-3 order-sm-1  formBack">
+        <h4 class="mb-4">Add/Update employee</h4>
+        <form id="form">
+            <div class="w-100 mb-3">
+                <label for="employeeName" class="form-label">Employee name</label>
+                <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name">
+                <div class="invalid-feedback" id="empErr">
+                </div>
+            </div>
+            <div class="w-100 mb-3">
+                <label for="tagId" class="form-label">Tag ID</label>
+                <input type="text" class="form-control" id="tagId" placeholder="Enter tag id">
+                <div class="invalid-feedback" id="tagErr">
+                </div>
+                <a class="pagColor" href="javascript:void(0); scanForTags()">Scan tag</a>
+            </div>
+            <div class="w-100">
+                <select id="devices" class="devices" multiple multiselect-hide-x="true" multiselect-search="true">
+                </select>
+            </div>
+            <button class="btn btnColor mt-3" id="formBtn" type="submit">Add employee</button>
+        </form>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-5 order-lg-1 order-md-2 order-sm-2 m-sm-t-3">
+        <div class="input-group input-group-sm" style="width: 325px;">
+            <input type="text" class="form-control" placeholder="Search employee" id="searchEmployee">
+            <button class="btn btn-outline-secondary" type="button" onclick="searchEmployee()">Search</button>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12 my-3 order-lg-2 order-md-2 order-sm-3">
+        <table class="table table-sm">
+            <thead>
+                <th>Employee name</th>
+                <th>Tag ID</th>
+                <th>Access</th>
+                <th>Actions</th>
+            </thead>
+            <tbody id="tableData"></tbody>
+        </table>
+        <nav id="pagination" class="d-none">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled" id="previous">
+                    <button class="page-link pagColor" id="btnPrevious">
+                        <span>&laquo;</span>
+                    </button>
+                </li>
+                <li class="page-item" id="home">
+                    <button class="page-link pagColor" id="btnHome">Home (<span id="pageText">1</span>)</button>
+                </li>
+                <li class="page-item" id="next">
+                    <button class="page-link pagColor" id="btnNext">
+                        <span>&raquo;</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="toast-container position-fixed top-0 end-0 p-3 ">
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500">
+        <div class="">
+            <img id="toastImg" src="" class="rounded m-auto" width="45px" height="45px">
+            <strong id="toastText" class="m-auto"></strong>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js" defer></script>
+<script src="~/js/employees.js" defer></script>
+<script src="~/js/dropdown/multiselect-dropdown.js" defer></script>

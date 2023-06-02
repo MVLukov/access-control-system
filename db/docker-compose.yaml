@@ -1,0 +1,21 @@
+version: "3"
+services:
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=caching_sha2_password
+    container_name: esp32_acs_db
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=User@123
+      - MYSQL_DATABASE=acs_db
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+    ports:
+      - 127.0.0.1:3307:3306
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 127.0.0.1:8081:80
+    environment:
+      - PMA_ARBITRAR

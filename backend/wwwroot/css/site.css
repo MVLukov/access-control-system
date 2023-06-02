@@ -1,0 +1,103 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.tr-hover:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ccc;
+}
+
+.form-check-input:checked {
+  background-color: green;
+  border: none;
+}
+
+.form-switch .form-check-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='red'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23dfdfdf'/%3e%3c/svg%3e");
+}
+
+.tagHover:hover {
+  background-color: gray;
+  cursor: pointer;
+  color: white;
+}
+
+.formBack {
+  background-color: rgba(134, 134, 134, 0.2);
+  height: 100%;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.input {
+  width: 250px !important;
+}
+
+input[type="text"][disabled] {
+  background-color: #c7c7c7;
+  /* border-color: black; */
+}
+
+.devices {
+  width: 100%;
+}
+
+.pagColor {
+  color: gray;
+}
+
+.pagColor:hover {
+  color: gray !important;
+}
+.pagColor:focus {
+  color: gray !important;
+}
+
+.btnColor {
+  background-color: gray;
+  color: white;
+}
+
+.btnColor:hover {
+  background-color: white;
+  color: black;
+  border-color: gray;
+}
+
+.trashIco {
+  filter: white;
+  width: 21px;
+  height: 21px;
+}
+
+.btnColor:hover > .trashIco {
+  filter: brightness(0) saturate(100%);
+}
+
+.btnColor:focus,
+.btnColor:active {
+  outline: none !important;
+  box-shadow: none;
+}

@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h1 class="mb-3">Access control system</h1>
+    <div class="w-100 d-flex flex-column justify-content-end align-items-end">
+        <input id="datePicker" class="form-control" type="date" placeholder="dd-mm-yyyy" style="width: 160px"
+            min="2023-02-10" />
+        <a id="rstDate" href="javascript:resetDate()" class="fst-italic d-none">Нулирай</a>
+    </div>
+
+    <table class="table table-sm">
+        <thead>
+            <th>Employee</th>
+            <th>Access</th>
+            <th>Device</th>
+            <th>Timestamp</th>
+        </thead>
+        <tbody id="historyTable">
+        </tbody>
+    </table>
+    <nav id="pagination" class="d-none">
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled" id="previous">
+                <button class="page-link pagColor" id="btnPrevious">
+                    <span>&laquo;</span>
+                </button>
+            </li>
+            <li class="page-item" id="home">
+                <button class="page-link pagColor" id="btnHome">Home (<span id="pageText">1</span>)</button>
+            </li>
+            <li class="page-item" id="next">
+                <button class="page-link pagColor" id="btnNext">
+                    <span>&raquo;</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/home.js"></script>
